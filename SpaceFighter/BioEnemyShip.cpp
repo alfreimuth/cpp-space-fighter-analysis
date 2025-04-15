@@ -15,7 +15,7 @@ void BioEnemyShip::Update(const GameTime& gameTime)
 {
 	if (IsActive())
 	{
-		float x = sin(gameTime.GetTotalTime() * Math::PI - GetIndex()) * sin(gameTime.GetTotalTime() * Math::PI - GetIndex()) * sin(gameTime.GetTotalTime() * 10 * Math::PI - GetIndex());
+		float x = sin(gameTime.GetTotalTime() * Math::PI - GetIndex()) * sin(gameTime.GetTotalTime() * Math::PI - GetIndex()) * sin((gameTime.GetTotalTime()/30) * Math::PI - GetIndex());
 		x *= GetSpeed() * gameTime.GetElapsedTime() * 1.4f;
 		TranslatePosition(x, GetSpeed() * gameTime.GetElapsedTime());
 
