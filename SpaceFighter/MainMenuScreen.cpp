@@ -24,10 +24,10 @@ void MainMenuScreen::LoadContent(ResourceManager& resourceManager)
 	const int COUNT = 2;
 	MenuItem *pItem;
 	Font::SetLoadSize(20, true);
-	Font *pFont = resourceManager.Load<Font>("Fonts\\arial.ttf");
+	Font *pFont = resourceManager.Load<Font>("Fonts\\Ethnocentric.ttf"); //arial.ttf - old
 
 	SetDisplayCount(COUNT);
-
+	 
 	enum Items { START_GAME, QUIT };
 	std::string text[COUNT] = { "Start Game", "Quit" };
 
@@ -62,7 +62,7 @@ void MainMenuScreen::Update(const GameTime& gameTime)
 	{
 		pItem->SetAlpha(alpha);
 		isSelected = pItem->IsSelected();
-		pItem->SetColor(isSelected ? Color::WHITE : Color::BLUE);
+		pItem->SetColor(isSelected ? Color::/*WHITE*/RED : Color::/*BLUE*/GREEN);
 		pItem->SetTextOffset(isSelected ? Vector2::UNIT_X * offset : Vector2::ZERO);
 	}
 
@@ -72,7 +72,7 @@ void MainMenuScreen::Update(const GameTime& gameTime)
 void MainMenuScreen::Draw(SpriteBatch& spriteBatch)
 {
 	spriteBatch.Begin();
-	spriteBatch.Draw(m_pTexture, m_texturePosition, Color::WHITE * GetAlpha(), m_pTexture->GetCenter());
+	spriteBatch.Draw(m_pTexture, m_texturePosition, Color::/*WHITE*/PURPLE * GetAlpha(), m_pTexture->GetCenter());
 	MenuScreen::Draw(spriteBatch);
 	spriteBatch.End();
 }

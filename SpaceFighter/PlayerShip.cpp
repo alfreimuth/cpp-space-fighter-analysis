@@ -28,10 +28,13 @@ void PlayerShip::HandleInput(const InputState& input)
 	if (IsActive())
 	{
 		Vector2 direction;
-		if (input.IsKeyDown(Key::DOWN)) direction.Y++;
-		if (input.IsKeyDown(Key::UP)) direction.Y--;
-		if (input.IsKeyDown(Key::Right)) direction.X++;
-		if (input.IsKeyDown(Key::Left)) direction.X--;
+		int speed = 1;
+		if (input.IsKeyDown(Key::LSHIFT)) speed = 2;
+		else int speed = 1;
+		if (input.IsKeyDown(Key::DOWN)) direction.Y+=speed;
+		if (input.IsKeyDown(Key::UP)) direction.Y-=speed;
+		if (input.IsKeyDown(Key::Right)) direction.X+=speed;
+		if (input.IsKeyDown(Key::Left)) direction.X-=speed;
 
 		// Normalize the direction
 		if (direction.X != 0 && direction.Y != 0)
